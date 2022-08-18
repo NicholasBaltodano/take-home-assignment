@@ -1,5 +1,8 @@
 from fastapi import FastAPI, Request, HTTPException
+import config
 
+
+print(config.metric_list)
 app = FastAPI()
 
 

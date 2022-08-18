@@ -56,12 +56,12 @@ class DataService():
 #db.Base.metadata.create_all(engine)
 # session = db.sessionmaker(bind=engine)
 
-metric = Metric("HITBTC", "CBCETH")
-metric_list = []
-metric_list.append(metric)
+# metric = Metric("HITBTC", "CBCETH")
+# metric_list = []
+# metric_list.append(metric)
 
-service = DataService(metric_list)
-service.track_metrics(5)
+# service = DataService(metric_list)
+# service.track_metrics(5)
 
 # ses = session()
 # price = get_price(metric.code)
