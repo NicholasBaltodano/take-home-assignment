@@ -58,7 +58,7 @@ Backend Engineer Take Home Assignment
    were tracking a lot more, I would have the lists get created dynamically from a central file/database and have the acceptable response list automatically grow with any that we add. 
 
 ## What if you needed to sample them more frequently? 
-   Right now I have the samping time default set in config.py For a temporary change we can change the file or pass in a specific time. 
+   Right now I have the samping time default set in data_service.py For a temporary change we can change the file or pass in a specific time. 
    Eventually we can have the application check a configuration for sampling time every so often so it can be changed on the fly
    or have a strategy pattern implementation for the sampling time.
 
