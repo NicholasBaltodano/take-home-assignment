@@ -9,9 +9,9 @@ info = 'sqlite:///montecarlo.db'
 
 Base = declarative_base()
 
-#TODO 
+
 class PricePoint(Base):
-    """Define the Price Point table. 
+    """Price Point table definition. 
         Columns:
             id          -TEXT
             code        -TEXT
@@ -19,6 +19,8 @@ class PricePoint(Base):
             market      -TEXT
             price       -TEXT
             time        -DATETIME(sqlite text)"""
+    
+    
     __tablename__ = "PricePoint"
     
     id       = Column('id', TEXT,  primary_key=True)
@@ -37,4 +39,4 @@ class PricePoint(Base):
         self.market = market
     
     def __repr__(self):
-        return f"PricePoint({self.id}, {self.exchange}, {self.price}, {self.time}, {self.code})"
+        return f"PricePoint(id:{self.id}, exchange:{self.exchange}, price:{self.price}, time:{self.time}, code:{self.code})"
