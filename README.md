@@ -9,28 +9,28 @@ Backend Engineer Take Home Assignment
    1. `pip install protobuf<=3.20.1 --force-reinstall`
 4. Copies from the Crypto watch SDK
    
-         ## API Crendential
+   ## API Crendential
 
-         Using a credential file will allow you to authenticate your requests and grant you the API access of your Cryptowatch account.
+   Using a credential file will allow you to authenticate your requests and grant you the API access of your Cryptowatch account.
 
-         Your account Credits will be consumed for the REST and WebSocket API. Specific Credit cost details can be found on the [Pricing page](https://cryptowat.ch/pricing).
+   Your account Credits will be consumed for the REST and WebSocket API. Specific Credit cost details can be found on the [Pricing page](https://cryptowat.ch/pricing).
 
-         ### Setup your credential file
+   ### Setup your credential file
 
-         1. Generate an Cryptowatch API key from [your account](https://cryptowat.ch/account/api-access)
-         2. Create your credential file on your machine by running in order:
+   1. Generate an Cryptowatch API key from [your account](https://cryptowat.ch/account/api-access)
+   2. Create your credential file on your machine by running in order:
 
-            2.1 `mkdir $HOME/.cw`
+      2.1 `mkdir $HOME/.cw`
 
-            2.2 `echo "apikey: 123" > $HOME/.cw/credentials.yml` (where `123` is your 20 digits **public key**)
+      2.2 `echo "apikey: 123" > $HOME/.cw/credentials.yml` (where `123` is your 20 digits **public key**)
 
-         3. Verify with `cat $HOME/.cw/credentials.yml` that you see something like below (`123` being your public key):
+   3. Verify with `cat $HOME/.cw/credentials.yml` that you see something like below (`123` being your public key):
 
-         ```
-         apikey: 123
-         ```
+   ```
+   apikey: 123
+   ```
 
-         The SDK will read your public key as soon as `import cryptowatch` is ran in your script.
+   The SDK will read your public key as soon as `import cryptowatch` is ran in your script.
 
 5. Start Server
    1. `uvicorn main:app`
