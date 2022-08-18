@@ -40,3 +40,23 @@ class PricePoint(Base):
     
     def __repr__(self):
         return f"PricePoint(id:{self.id}, exchange:{self.exchange}, price:{self.price}, time:{self.time}, code:{self.code})"
+
+
+class Ranking(Base):
+    __tablename__ = "Ranking"
+
+    id       = Column('id', TEXT, primary_key=True)
+    rank     = Column('rank', TEXT)
+    exchange = Column('exchange', TEXT)
+    market   = Column('market', TEXT)
+    code     = Column('code', TEXT)
+
+    def __init__(self, code, exchange, rank):
+        self.id = str(uuid.uuid1())
+        self.exchange = exchange
+        self.code = code
+        self.rank = rank
+        self.market = self.code.split(':')[1]
+
+    def __repr__(self):
+        return f"Ranking(id:{self.id}, rank:{self.rank}, exchange: {self.exchange}, code: {self.code}, market:{self.market}"

@@ -7,7 +7,7 @@ class MetricName(str, Enum):
     bntbtc = "bntbtc"
     cbceth = "cbceth"
 
-
+hour_look_back = 24
 
 metric_list = []
 metric_list.append(ds.Metric("Kraken", "BTCUSD"))
