@@ -13,9 +13,12 @@ class Metric():
         self.code = exchange + ':' + market
        
 
-    def retrieve_price(self):
-        response = cw.markets.get(self.code)
-        return(response.market.price.last)
+    def get_price(code: str) -> str:
+        response = cw.markets.get(code)
+        #print(type( response.market.price.last))
+        return "{:f}".format(response.market.price.last)
+
+
 
     def __repr__(self):
         return f'Metric(exchange:{self.exchange}, market: {self.market}, Code: {self.code})'
@@ -24,11 +27,6 @@ class Metric():
 engine  = db.create_engine(db.info)
 db.Base.metadata.create_all(engine)
 session = db.sessionmaker(bind=engine)
-
-def get_price(code: str) -> str:
-    response = cw.markets.get(code)
-    #print(type( response.market.price.last))
-    return "{:f}".format(response.market.price.last)
 
 
 metric = Metric("HITBTC", "CBCETH")
