@@ -64,12 +64,12 @@ Backend Engineer Take Home Assignment
 
 ## what if you had many users accessing your dashboard to view metrics?
    I would change the way the API was designed. I would go for a more microservice/API gateway that scales up and down with demand on the application. 
-   We could also implement a throttling/rate keeping for API access. 
+   We could also implement a throttling/rate keeping for API access. See futur.png for a simple layout that would be able to scale.
 
 # Testing:
 ## how would you extend testing for an application of this kind (beyond what you implemented)?
    We can incorporate testing each endpoint with good and bad data, I would want to test the standard deviation functionality. 
-   Other than that I would want to incorporate Stress testing(as Users grow), Load testing, and with the future refactoring regression testing. 
+   Other than that I would want to incorporate Stress testing(as Users grow), Load testing, and with the future refactoring; regression testing. 
    
 
 # Feature request:
