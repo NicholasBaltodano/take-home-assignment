@@ -10,7 +10,7 @@ Backend Engineer Take Home Assignment
 2. `pip install -r requirements.txt`
 3. Optional - You may run into a protobuf error, if you do, please run 
    1. `pip install protobuf<=3.20.1 --force-reinstall`
-4. Copies from the Crypto watch SDK
+4. Copied from the Crypto watch SDK
    
    ## API Crendential
 
