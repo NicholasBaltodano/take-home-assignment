@@ -15,7 +15,11 @@ class DataService():
         if self.logger is not None:
             logger.info("Starting Data Service")
 
-    def track_metrics(self, wait_time = 60):
+    def track_metrics(self, wait_time = config.metric_wait_interval):
+        """Starts the tracking of metrics defined in an list"""
+        if self.logger is not None:
+            logger.info("Starting Metric Tracker...")
+
         while True:
             session  = self.session() # Create SQL session
             for metric in self.metric_list: # For every metric, get and save price
@@ -26,6 +30,7 @@ class DataService():
             time.sleep(wait_time)
 
     def initialize_ranking(self):
+        """ Populated ranking table with initial values"""
         if self.logger is not None:
             self.logger.info("Initializing Rankings...")
         s = self.session()
@@ -37,14 +42,19 @@ class DataService():
                 s.add(ranking)
             s.commit()
 
-    def calculate_ranking(wait_time=86400):
+    #TODO Create functionality for the calculate ranking
+    def calculate_ranking(wait_time=ranking_wait_interval):
+        if self.logger is not None:
+            logger.info("Calculating Ranking...")
+
         time.sleep(wait_time)
+        
         pass
 
 class Metric():
     """A coin/metric to follow
     
-    Parameters:
+    Fields:
         exchange: string
         market:   string
         code:     string"""
@@ -53,8 +63,8 @@ class Metric():
         self.market = market
         self.code = exchange + ':' + market
        
-
     def get_price(self, code: str) -> str:
+        """Get Price of a metric from the cryptowatch SDK"""
         response = cw.markets.get(code)
         return "{:f}".format(response.market.price.last)
 
@@ -66,6 +76,9 @@ class Metric():
 
 
 def start_service(list, logger):
+    """This function starts the Data Service. It initilizes the ranking 
+       data and starts two processes for the Ranking calculation and the 
+       metric tracking"""
     service = DataService(list, logger)
     service.initialize_ranking()
     p1 = Process(target=service.track_metrics())

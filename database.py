@@ -43,6 +43,12 @@ class PricePoint(Base):
 
 
 class Ranking(Base):
+    """Ranking table definition. 
+        Columns:
+            id          -TEXT
+            code        -TEXT
+            exchange    -TEXT
+            market      -TEXT"""
     __tablename__ = "Ranking"
 
     id       = Column('id', TEXT, primary_key=True)
