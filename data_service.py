@@ -5,6 +5,10 @@ import time
 from multiprocessing import Process
 
 
+metric_wait_interval = 60
+ranking_wait_interval = 86400
+
+
 class DataService():
     """Service that tracks the given metrics/coin and manages rankings"""
     def __init__(self, metric_list: list, logger = None):
@@ -13,12 +17,12 @@ class DataService():
         self.session = db.sessionmaker(bind=self.engine)
         self.logger = logger
         if self.logger is not None:
-            logger.info("Starting Data Service")
+            self.logger.info("Starting Data Service")
 
-    def track_metrics(self, wait_time = config.metric_wait_interval):
+    def track_metrics(self, wait_time = metric_wait_interval):
         """Starts the tracking of metrics defined in an list"""
         if self.logger is not None:
-            logger.info("Starting Metric Tracker...")
+            self.logger.info("Starting Metric Tracker...")
 
         while True:
             session  = self.session() # Create SQL session

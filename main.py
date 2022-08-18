@@ -7,9 +7,7 @@ import threading
 from dateutil.relativedelta import relativedelta
 import datetime
 
-# Set up logging
-logging.config.fileConfig('logging.conf', disable_existing_loggers=False, daemon=True)
-logger = logging.getLogger(__name__)
+
 
 #Set up SQL connection
 engine  = db.create_engine(db.info)
@@ -22,8 +20,12 @@ app = FastAPI()
 
 @app.on_event("startup")
 async def startup_event():
+    # Set up logging
+    logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
+    logger = logging.getLogger(__name__)
+
     db.Base.metadata.create_all(engine)
-    thread = threading.Thread(target=data_service.start_service, args=(config.metric_list, logger))
+    thread = threading.Thread(target=data_service.start_service, args=(config.metric_list, logger), daemon=True)
     thread.start()
 
 @app.get("/")
