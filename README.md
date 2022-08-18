@@ -47,7 +47,7 @@ Backend Engineer Take Home Assignment
    - Users will recieve price data from the last 24 hours & the ranking based on the STD dev. 
 3. Refactor!
    1. Need to create seperate the query away from the get_metric function
-   2. Add better logging for observabilty
+   2. Add better logging for observabilty -> log to a file
    3. Add a better way to deploy (docker?)
    4. Put application behind NGINX server for production.   
    
