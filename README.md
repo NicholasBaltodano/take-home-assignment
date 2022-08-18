@@ -4,6 +4,7 @@ Backend Engineer Take Home Assignment
 # Install Instructions
 1. Clone repo from github. 
       `https://github.com/NicholasBaltodano/take-home-assignment.git`
+2. `cd take-home-assignment`
 2. `pip install -r requirements.txt`
 3. Optional - You may run into a protobuf error, if you do, please run 
    1. `pip install protobuf<=3.20.1 --force-reinstall`
@@ -33,7 +34,7 @@ Backend Engineer Take Home Assignment
    The SDK will read your public key as soon as `import cryptowatch` is ran in your script.
 
 5. Start Server
-   1. `uvicorn main:app`
+   1. `python -m uvicorn main:app`
 
 # TODO
 1. ~~Gather Data from https://docs.cryptowat.ch/rest-api/ every minute.~~
