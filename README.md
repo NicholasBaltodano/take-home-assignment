@@ -4,6 +4,7 @@ Backend Engineer Take Home Assignment
 
 # TODO
 1. ~~Gather Data from https://docs.cryptowat.ch/rest-api/ every minute.~~
+   
    ~~- Store this data into a database~~
 2. Create API to access this data
    - Users will select a metric/coin and get data on it
