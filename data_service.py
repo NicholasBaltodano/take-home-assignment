@@ -22,7 +22,9 @@ class DataService():
 
         while True:
             session  = self.session() # Create SQL session
-            for metric in self.metric_list: # For every metric, get and save price
+            
+            # For every metric, get and save price
+            for metric in self.metric_list: 
                 price = metric.get_price(metric.code)
                 price_point = db.PricePoint(code=metric.code, exchange=metric.exchange, market=metric.market, price=price, time=datetime.datetime.now())
                 session.add(price_point)

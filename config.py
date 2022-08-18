@@ -13,3 +13,6 @@ metric_list = []
 metric_list.append(ds.Metric("Kraken", "BTCUSD"))
 metric_list.append(ds.Metric("Kraken", "BNTBTC"))
 metric_list.append(ds.Metric("HITBTC","CBCETH"))
+
+metric_wait_interval = 60
+ranking_wait_interval = 86400

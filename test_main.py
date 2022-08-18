@@ -22,6 +22,7 @@ def test_good_metric_lower():
     response = client.get("/metric/btcusd")
     assert response.status_code == 200
 
+#TODO Why is this returning 200 in test, but 422 when running the server?
 def test_bad_metric():
     response = client.get("/metric/bxxxxxxd")
     assert response.status_code == 422

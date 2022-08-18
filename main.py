@@ -11,11 +11,14 @@ import datetime
 logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
 
-
-app     = FastAPI()
+#Set up SQL connection
 engine  = db.create_engine(db.info)
 session = db.sessionmaker(bind=engine)
-s = session()
+s       = session()
+
+
+app = FastAPI()
+
 
 @app.on_event("startup")
 async def startup_event():
@@ -23,14 +26,12 @@ async def startup_event():
     thread = threading.Thread(target=data_service.start_service, args=(config.metric_list, logger))
     thread.start()
 
-
-
-
-
 @app.get("/")
 async def root(request: Request):
     return  f"Welcome to the Monte Carlo Interview Challenge! Please head over to {request.url._url}docs for API documentation"
 
+
+#TODO Refactor this 
 @app.get("/metric/{metric_name}")
 async def get_metric_chart(metric_name: config.MetricName):
     # Raise error if not in the metricName list
