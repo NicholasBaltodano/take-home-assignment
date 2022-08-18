@@ -8,7 +8,7 @@ from dateutil.relativedelta import relativedelta
 import datetime
 
 # Set up logging
-logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
+logging.config.fileConfig('logging.conf', disable_existing_loggers=False, daemon=True)
 logger = logging.getLogger(__name__)
 
 #Set up SQL connection
