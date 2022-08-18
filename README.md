@@ -1,6 +1,8 @@
 # take-home-assignment
 Backend Engineer Take Home Assignment
 
+## PreRequisites 
+   Python 3.10+
 # Install Instructions
 1. Clone repo from github. 
       `https://github.com/NicholasBaltodano/take-home-assignment.git`
