@@ -46,9 +46,9 @@ Backend Engineer Take Home Assignment
    ~~- Users will select a metric/coin and get data on it~~
    - Users will recieve price data from the last 24 hours & the ranking based on the STD dev. 
 3. Refactor!
-   1. Need to create seperate the query away from the get_metric function
+   1. Need to seperate the data access away from the get_metric function, its coupled too tightly.
    2. Add better logging for observabilty -> log to a file
-   3. Add a better way to deploy (docker?)
+   3. Add a better way to deploy (bat file?  + docker?)
    4. Put application behind NGINX server for production.   
    
 
