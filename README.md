@@ -80,4 +80,4 @@ short proposal on how you would implement this feature request.
 With a new system design found in the Future.png photo, I would have a seperate service that queries the daemon service db for hourly results
 of each metric. It will keep history of the the averages, once an average is calculated it will be compared to its previous averages, if it crosses over some specified threshold(3x) then we can send the info to an alerting service that will send to all users tracking that metric. 
 
-Since crypto is volatile we can opt not to make sure the metric is constistently increased before sending notifications, or we can poll the average on a shorter bases to make sure its consistent. I'm betting users would rather be first then have 100% accuracy.
+Since crypto is volatile we can opt not to make sure the metric is constistently increased before sending notifications, or we can poll the average on a shorter time basis to make sure its consistent. I'm betting users would rather be first then have 100% accuracy.
